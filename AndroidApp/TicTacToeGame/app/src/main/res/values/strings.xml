@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TicTacToeGame</string>
+    <string name="title">Tic Tae Toe</string>
+    <string name="wel_title">Welcome \n to \n Tic Tac Toe</string>
+    <string name="get_started">Get Started</string>
+    <string name="player_choose">Please select \n the game type</string>
+    <string name="singleP">SINGLE PLAYER</string>
+    <string name="multiP">MULTI PLAYER</string>
+    <string name="restart">RESTART</string>
+</resources>

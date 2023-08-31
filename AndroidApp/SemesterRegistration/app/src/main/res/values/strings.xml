@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SemesterRegistration</string>
+    <string-array name="programme">
+        <item>B.E Information Technology</item>
+        <item>B.E Civil Engineering</item>
+        <item>B.E Electronic and Communication</item>
+        <item>B.E Instrumentation and Control</item>
+        <item>B.E Geology</item>
+        <item>B.E Software Engineering</item>
+        <item>B.E Mechanical Engineering</item>
+        <item>B.E Water Resources Engineering</item>
+        <item>B.E Mechanical Engineering</item>
+    </string-array>
+    <string-array name="semester">
+        <item>Sem I</item>
+        <item>Sem II</item>
+        <item>Sem III</item>
+        <item>Sem IV</item>
+        <item>Sem V</item>
+        <item>Sem VI</item>
+        <item>Sem VII</item>
+        <item>Sem VIII</item>
+        <item>Sem IX</item>
+        <item>Sem X</item>
+    </string-array>
+</resources>

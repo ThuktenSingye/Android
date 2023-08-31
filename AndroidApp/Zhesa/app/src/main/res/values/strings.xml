@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Zhesa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="noti">Please install Dzongkha Keyboard to search. Tap on the word while searching</string>
+    <string name="about_app">This app contains Dzongkha Honorific and ordinary Dzongkha wordd.</string>
+    <string name="copyright">Dzongkha Development Commission</string>
+    <string name="website1">www.dzongkha.gov.bt</string>
+    <string name="website2">ddc@dzongkha.gov.bt</string>
+    <string name="partner_name">Business Partner</string>
+    <string name="partner_info">Information Technology Department</string>
+    <string name="partner_college">College of Science and Technology</string>
+    <string name="part_web1">www.cst.edu.bt</string>
+    <string name="part_web2">itd.cst@rub.edu.bt </string>
+    <string name="developer_info">Developed as Final Year project by: \n\t 1.Govinda Ghimeray \n\t 2.Sonam Lhamo \n\t 3.Karma Tenzin \n\t 4.Pema Galey</string>
+    <string name="developer">App Developer</string>
+</resources>

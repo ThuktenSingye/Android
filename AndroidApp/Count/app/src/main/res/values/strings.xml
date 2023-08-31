@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Application1</string>
+    <string name="toast_button_text">Toast</string>
+    <string name="count_button_text">Count</string>
+    <string name="random_button_text">Random</string>
+    <string name="previous_button_text">Previous</string>
+    <string name="prev_button_text">Previous</string>
+    <string name="textview_text">R</string>
+    <string name="random_heading">"The random number between 0 and %d "</string>
+    <string name="next_button_text">Next</string>
+</resources>
