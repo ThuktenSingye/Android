@@ -15,18 +15,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private ConnectivityReceiver connectivityReceiver;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar refreshProgress; // Add this
-    private TextView no_internet;
+    public TextView no_internet;
     private ImageView no_wifi;
 
-    private BroadcastReceiver connectivityReceiver = new BroadcastReceiver() { // listen to the change in network connectivity
-        @Override
-        public void onReceive(Context context, Intent intent) { // trigger when there is changes in network status or match with intent filter
-            // Check connectivity status and update UI
-           refreshConnectivityStatus();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,32 +32,48 @@ public class MainActivity extends AppCompatActivity {
 //        initialize swipe refresh layout
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         refreshProgress = findViewById(R.id.refresh_progress);
-
+//        initialize broadcast receiver
+        connectivityReceiver = new ConnectivityReceiver();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 // Show the refresh animation
                 swipeRefreshLayout.setRefreshing(true);
-
-                refreshConnectivityStatus();
+                if (isConnected()) {
+                    // Internet is available Update UI accordingly
+                    new ConnectivityReceiver.FetchData(MainActivity.this).execute();
+//                    no_internet.setVisibility(View.GONE);
+//                    no_wifi.setVisibility(View.GONE);
+                } else {
+                    // No internet connectivity
+                    // Update UI accordingly
+                    no_internet.setVisibility(View.VISIBLE);
+                    no_wifi.setVisibility(View.VISIBLE);
+                }
+                // Finish the refresh animation
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
-        refreshConnectivityStatus();
+
     }
-    private void refreshConnectivityStatus() {
+    public void refreshConnectivityStatus() {
         if (isConnected()) {
-            // Internet is available
-            // Update UI accordingly
-            no_internet.setVisibility(View.GONE);
-            no_wifi.setVisibility(View.GONE);
+            // Internet is available Update UI accordingly
+
         } else {
             // No internet connectivity
             // Update UI accordingly
-            no_internet.setVisibility(View.VISIBLE);
-            no_wifi.setVisibility(View.VISIBLE);
+
         }
-        // Finish the refresh animation
-        swipeRefreshLayout.setRefreshing(false);
+
+    }
+    public void makeVisible(){
+        no_internet.setVisibility(View.VISIBLE);
+        no_wifi.setVisibility(View.VISIBLE);
+    }
+    public void clearVisible(){
+        no_internet.setVisibility(View.GONE);
+        no_wifi.setVisibility(View.GONE);
     }
 
     @Override
@@ -81,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         // Unregister the BroadcastReceiver when the activity is paused
         unregisterReceiver(connectivityReceiver);
     }
-
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
