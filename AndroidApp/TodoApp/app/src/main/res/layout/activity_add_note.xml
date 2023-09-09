@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F7FBFE"
+    android:layout_height="match_parent"
+    tools:context=".AddNote">
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:columnCount="1"
+        android:padding="10dp"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:ems="10"
+                android:hint="Title"
+                android:inputType="text"
+                android:padding="10dp"
+                android:background="@drawable/border"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="55dp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:ems="10"
+                android:gravity="bottom"
+                android:hint="Description"
+                android:background="@drawable/border"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="139dp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <GridLayout android:layout_gravity="center_vertical|center_horizontal">
+
+            <Button
+                android:id="@+id/add_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginEnd="20dp"
+                android:text="Add"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="225dp" />
+
+            <Button
+                android:id="@+id/reset_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Reset"
+                tools:layout_editor_absoluteX="175dp"
+                tools:layout_editor_absoluteY="229dp" />
+        </GridLayout>
+
+    </GridLayout>
+
+    <!--    <Button-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        tools:layout_editor_absoluteX="10dp"-->
+<!--        tools:layout_editor_absoluteY="628dp" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
