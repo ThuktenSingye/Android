@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         noteAdapter = new NoteAdapter(notes);
         rvNote.setAdapter(noteAdapter);
         rvNote.setLayoutManager(new LinearLayoutManager(this));
-
+        loadNotesFromSharedPreferences();
 
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +41,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private void loadNotesFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        // You can use a for loop or other logic to retrieve notes and add them to the list
+        int noteCount = sharedPreferences.getInt("MyPrefs",0);
+        for(int i = 0; i<=noteCount; i++){
+            String title = sharedPreferences.getString("note_title", "");
+            String description = sharedPreferences.getString("note_description", "");
+            Note note = new Note(title, description, getApplicationContext());
+            notes.add(note);
+            noteAdapter.notifyDataSetChanged();
+            
+        }
+        // Example:
+       
+        }
+    
 
 }

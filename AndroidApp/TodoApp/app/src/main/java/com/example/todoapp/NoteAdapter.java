@@ -31,7 +31,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         public TextView description;
         public ImageView edit;
 
-
         public ViewHolder(View itemView){
             super(itemView);
 
@@ -44,20 +43,39 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             delete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if (b){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            MainActivity.notes.remove(position);
-                            notifyItemRemoved(position);
+                    Context context = delete.getContext();
+                    AlertDialog.Builder delete_builder =  new AlertDialog.Builder(context);
+                    delete_builder.setTitle("Confirm Delete?");
+                    delete_builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Retrieve the updated title and description from EditTexts
+                            if (b){
+                                int position = getAdapterPosition();
+                                if(position != RecyclerView.NO_POSITION){
+                                    MainActivity.notes.remove(position);
+                                    notifyItemRemoved(position);
+                                }
+                            }
+
+                            // Notify the adapter that the data has changed
+                            notifyDataSetChanged();
+
+                            // Dismiss the dialog
+                            dialogInterface.dismiss();
                         }
-                    }
+                    });
+                    delete_builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    delete_builder.create().show();
+
+
                 }
             });
-            // Define a member variable to store the selected date
-
-
-// Find the EditText
-
 
 //            for task edition
             edit.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +106,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                                 String updatedTitle = titleEditText.getText().toString();
                                 String originalDescription = descriptionEditText.getText().toString();
                                 String updatedDescription;
-                                if (originalDescription.length() > 10) {
-                                    updatedDescription = originalDescription.substring(0, 10) + "...";
+                                if (originalDescription.length() > 20) {
+                                    updatedDescription = originalDescription.substring(0, 20) + "...";
                                 } else {
                                     updatedDescription = originalDescription;
                                 }

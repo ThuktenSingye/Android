@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,9 +46,10 @@ public class AddNote extends AppCompatActivity {
                 } else {
                     updatedDescription = note_des;
                 }
-                Note note = new Note(note_title,updatedDescription);
-                MainActivity.notes.add(note);
-                MainActivity.noteAdapter.notifyDataSetChanged();
+                saveToSharedPreferences(note_title, note_des);
+//                Note note = new Note(note_title,updatedDescription, getApplicationContext());
+//                MainActivity.notes.add(note);
+//                MainActivity.noteAdapter.notifyDataSetChanged();
                 view.clearFocus();
                 clearText();
             }
@@ -63,5 +66,13 @@ public class AddNote extends AppCompatActivity {
     public void clearText(){
         title.setText("");
         description.setText("");
+    }
+    private void saveToSharedPreferences(String title, String description) {
+        Context context = getApplicationContext();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("note_title", title);
+        editor.putString("note_description", description);
+        editor.apply();
     }
 }

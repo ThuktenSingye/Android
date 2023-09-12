@@ -22,15 +22,15 @@
         android:elevation="10dp"
         app:titleTextColor="@android:color/black">
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:gravity="center"
             android:text="Todo List"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-
             />
 
     </androidx.appcompat.widget.Toolbar>
