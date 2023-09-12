@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FetchData extends AsyncTask<Void, Void, String> {
     private final Context context;
@@ -42,7 +44,7 @@ public class FetchData extends AsyncTask<Void, Void, String> {
 //           implement the data retrieval logic here
         try{
 //                create url for api endpoint
-            URL url = new URL("https://randomuser.me/api");
+            URL url = new URL("https://www.googleapis.com/books/v1/volumes?q=search+terms&key=AIzaSyC9FRCpWsHIEmwpbrCcA8y8VCq9HK_2GsQ");
             // open the connection to url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 //                set up connection properties
@@ -65,15 +67,28 @@ public class FetchData extends AsyncTask<Void, Void, String> {
                 reader.close();
                 String jsonData = stringBuilder.toString();
                 JSONObject jsonObject = new JSONObject(jsonData);
-                JSONArray resultsArray = jsonObject.getJSONArray("results");
+                JSONArray resultsArray = jsonObject.getJSONArray("items");
                 if (resultsArray.length() > 0) {
                     JSONObject userObject = resultsArray.getJSONObject(0);
-                    JSONObject nameObject = userObject.getJSONObject("name");
+                    JSONObject nameObject = userObject.getJSONObject("volumeInfo");
+                    JSONArray authors_list = nameObject.getJSONArray("authors");
+                    ArrayList<String> authorsList = new ArrayList<>();
 
-                    String firstName = nameObject.getString("first");
-                    String lastName = nameObject.getString("last");
-                    String fullName = firstName + " " + lastName;
-                    return "Name:"+ fullName;
+                    // Iterate through the authors array
+                    for (int i = 0; i < authors_list.length(); i++) {
+                        String author = authors_list.getString(i);
+                        authorsList.add(author);
+                    }
+
+                    String title = nameObject.getString("title");
+                    String description = nameObject.getString("description");
+
+
+                    String authors = String.join(", ",authorsList);
+
+//                    return new BookInfo(title, authors, description);
+//
+                    return "Title:"+ title+"\nAuthor:"+ String.join(", ", authorsList)+"\nDescription:"+ description;
                 } else {
                     return "No user data found.";
                 }

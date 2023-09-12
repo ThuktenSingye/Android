@@ -70,17 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-//    public void refreshConnectivityStatus() {
-//        if (isConnected()) {
-//            // Internet is available Update UI accordingly
-//
-//        } else {
-//            // No internet connectivity
-//            // Update UI accordingly
-//
-//        }
-//
-//    }
+
     public void makeVisible(){
         no_internet.setVisibility(View.VISIBLE);
         no_wifi.setVisibility(View.VISIBLE);
