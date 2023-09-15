@@ -21,6 +21,7 @@ public class BookLoader extends AsyncTaskLoader {
 
     @Nullable
     @Override
+    // below method is automatically called loader is instantiated
     public Object loadInBackground() {
         return NetworkUtils.getBookInfo(mQueryString);
     }

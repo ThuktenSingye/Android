@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+// this class fetch the data using API
 public class NetworkUtils {
     private static final String LOG_TAG =
             NetworkUtils.class.getSimpleName();

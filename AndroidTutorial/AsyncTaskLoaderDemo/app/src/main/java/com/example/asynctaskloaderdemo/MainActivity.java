@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             inputManager.hideSoftInputFromWindow(view.getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
         }
-
+        // check for network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = null;
         if (connMgr != null) {
             networkInfo = connMgr.getActiveNetworkInfo();
         }
-
+        // if there is internet connection and input query not null restart the loader
         if (networkInfo != null && networkInfo.isConnected()
                 && queryString.length() != 0) {
             Bundle queryBundle = new Bundle();
@@ -76,11 +76,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
         String queryString = "";
-
+        // this will create Book loader instance
         if (args != null) {
             queryString = args.getString("queryString");
         }
-
         return new BookLoader(this, queryString);
     }
 
