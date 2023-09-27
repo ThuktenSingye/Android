@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--&lt;!&ndash;    <Button&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="1245678901234567890"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/button1"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <Button&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="CANCEL IT"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/button2"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_below="@id/button1"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_alignRight="@+id/button1"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_alignLeft="@id/button1" />&ndash;&gt;-->
+<!--    -->
+<!--</RelativeLayout>-->
+<!--alignright and alignleft can be fulfilled by matching width to the first button
+to left and right aligment will control the width while top and bottom alignment will control the height-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        >
+    <!-- Child1 is drawn first -->
+<ImageView
+    android:id="@+id/child1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="Image"
+    android:src="@drawable/ic_launcher_foreground" />
+<ImageView
+    android:id="@+id/child2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="Image"
+    android:src="@drawable/ic_launcher_background" />
+<!-- Child2 is drawn over Child1 -->
+<!--<TextView-->
+<!--    android:id="@+id/child2"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Child 2"-->
+<!--    />-->
+<!--&lt;!&ndash; Child3 is drawn over Child1 and Child2 &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/child3"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Child 3"-->
+<!--     />-->
+</FrameLayout>
