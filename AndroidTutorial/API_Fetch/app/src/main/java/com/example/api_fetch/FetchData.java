@@ -82,10 +82,7 @@ public class FetchData extends AsyncTask<Void, Void, String> {
 
                     String title = nameObject.getString("title");
                     String description = nameObject.getString("description");
-
-
                     String authors = String.join(", ",authorsList);
-
 //                    return new BookInfo(title, authors, description);
 //
                     return "Title:"+ title+"\nAuthor:"+ String.join(", ", authorsList)+"\nDescription:"+ description;
