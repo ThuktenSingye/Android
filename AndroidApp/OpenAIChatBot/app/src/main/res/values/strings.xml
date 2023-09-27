@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenAIChatBox</string>
+    <string name="welcome_text">Welcome to Open Ai Chat Bot \n Try it out</string>
+</resources>
