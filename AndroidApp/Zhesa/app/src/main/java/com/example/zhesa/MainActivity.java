@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottom_nav_view = findViewById(R.id.bottomNavigationView);
         bottom_nav_view.setOnNavigationItemSelectedListener(MainActivity.this);
         bottom_nav_view.setSelectedItemId(R.id.favorite);
-
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
