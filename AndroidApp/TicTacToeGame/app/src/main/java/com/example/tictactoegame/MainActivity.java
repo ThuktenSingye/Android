@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button start_btn = (Button) findViewById(R.id.getStarted_btn);
+
         start_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                 move to choose player activity using Intent
-                Toast.makeText(MainActivity.this, "Moving to next", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, Player.class);
                 startActivity(intent);
             }

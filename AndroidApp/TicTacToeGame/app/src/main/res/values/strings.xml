@@ -7,4 +7,5 @@
     <string name="singleP">SINGLE PLAYER</string>
     <string name="multiP">MULTI PLAYER</string>
     <string name="restart">RESTART</string>
+    <string name="back">BACK</string>
 </resources>

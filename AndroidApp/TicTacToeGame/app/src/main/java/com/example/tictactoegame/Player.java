@@ -16,6 +16,7 @@ public class Player extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        fetch button and add two listern
+        setContentView(R.layout.player);
         Button singleP_btn = (Button) findViewById(R.id.single_btn);
         Button multiP_btn = (Button) findViewById(R.id.multi_btn);
 
