@@ -46,10 +46,10 @@ public class AddNote extends AppCompatActivity {
                 } else {
                     updatedDescription = note_des;
                 }
-                saveToSharedPreferences(note_title, note_des);
-//                Note note = new Note(note_title,updatedDescription, getApplicationContext());
-//                MainActivity.notes.add(note);
-//                MainActivity.noteAdapter.notifyDataSetChanged();
+//                saveToSharedPreferences(note_title, note_des);
+                Note note = new Note(note_title,updatedDescription, getApplicationContext());
+                MainActivity.notes.add(note);
+                MainActivity.noteAdapter.notifyDataSetChanged();
                 view.clearFocus();
                 clearText();
             }
